@@ -1,11 +1,13 @@
 import { Paper } from '@mui/material'
 
 type MovieCardProps = {
-   poster:String;
+   poster?: string;
 
 }
 
-function  MovieCard( { poster}  : MovieCardProps) {
+function MovieCard({
+   poster
+}: MovieCardProps) {
     
     return (
        <Paper
@@ -17,7 +19,7 @@ function  MovieCard( { poster}  : MovieCardProps) {
             minWidth:'10rem'
         }}
        > 
-        <img src="{poster}"
+        <img src={ poster }
              style={{
                 width:'100%'
              }}
