@@ -30,7 +30,6 @@ function HighlightSection(){
                                 borderStyle: 'solid',
                                 padding: '0.2rem',
                                 marginRight: '0.3rem',
-                                marginLeft: '0.2rem',
                             }}>
                                 16
                                 </span>

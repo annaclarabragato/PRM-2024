@@ -4,13 +4,13 @@ import MovieCard from "../MovieCard";
 const movies = [
     {poster: 'house-of-dragons-poster.jpg'},
     {poster: 'gyEnhITeHLky85XJxuTPqniPrzE.jpg'},
-    {poster: '9h2KgGXSmWigNTn3kQdEFFngj9i.jpg'},
+    {poster: 'cQLJT6hTXio0md94oBsSWADOECf.jpg'},
     {poster: 'filme-one-piece.jpg'},
-    {poster: 'mAbuZuS4CqlTI6lvWIxPRHppbVs.jpg'},
-    {poster: 'dYwihSnQmCVuIQbuG9n18BK5Iqd.jpg'},
-    {poster: 'house-of-dragons-poster.jpg'},
-    {poster: 'gyEnhITeHLky85XJxuTPqniPrzE.jpg'},
     {poster: '9h2KgGXSmWigNTn3kQdEFFngj9i.jpg'},
+    {poster: 'dYwihSnQmCVuIQbuG9n18BK5Iqd.jpg'},
+    {poster: 'xeeF1KWSz8EEUl8RBz64qRnxm7V.jpg'},
+    {poster: 'xNSsIyZcbESWBm42VTo09zbjS6s.jpg'},
+    {poster: 'csi-poster.png'},
 ];
 
 type SectionProps = {
