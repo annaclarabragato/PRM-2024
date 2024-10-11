@@ -11,6 +11,7 @@ export class Movie {
   @Column({ type: 'text', nullable: false })
   description: string;
 
+  @Column({ name: 'age-rating', length: 2, nullable: false })
   ageRating: string;
 
   @Column({ nullable: false })
