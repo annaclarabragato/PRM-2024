@@ -14,7 +14,16 @@ export class MovieService {
         return this.repository.find();
     }
 
-findById(id: string): Promise<Movie> {
-    return this.repository.findOneBy({id: id});
-}
+    findById(id: string): Promise<Movie> {
+        return this.repository.findOneBy({ id: id });
+    }
+
+    save(movie: Movie): Promise<Movie> {
+        return this.repository.save(movie);
+    }
+
+    async remove(id: string): Promise<void> {
+        await this.repository.delete(id);
+    }
+
 }
