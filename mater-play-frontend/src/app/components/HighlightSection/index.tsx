@@ -1,74 +1,100 @@
-import {Box, Container, Stack, Typography, Button}  from '@mui/material'
+import { Box, Button, Container, Stack, Typography } from '@mui/material';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { MoviesService } from '../../services/movies-service';
+import { IMovie } from '../../@libs/types';
 
+function HighLightSection() {
 
+    const params = useParams();
 
-function HighlightSection(){
-    return(
+    const [movie, setMovie] = useState<IMovie>({} as IMovie);
+
+    useEffect(() => {
+
+         const movieId = (params.id) ? params.id: "00602133-a84f-49cc-8750-a150c18cdeba"
+
+         
+        if (params.id) {
+            MoviesService.getMoviesById(movieId)
+                .then(result => {
+                    if (result) setMovie(result);
+                })
+                .catch(error => {
+                    console.log('PAU:', error)
+                })
+        }
+    }, [params]);
+
+    return (
         <Box>
             <Container>
                 <Stack
-                direction="row"
+                    direction="row"
                 >
-                    <img src="assets/house-of-dragons-poster.jpg" />
+                    <img src={`assets/${movie.poster}`} />
                     <Stack
-                    
-                    sx={{
-                        justifyContent:'center',
-                        paddingLeft:'3rem',
-                    }}>
-                        <Typography
-                        variant="h4"
-                        > A Casa do Dragão
-                        </Typography>
-                        <Typography
-                        variant="subtitle2"
-                        >
-                            
-                            <span
-                            style={{
-                                borderWidth: '1px',
-                                borderStyle: 'solid',
-                                padding: '0.2rem',
-                                marginRight: '0.3rem',
-                            }}>
-                                16
-                                </span>
-                            Aventura, Fantasia, Ação
-                        </Typography>
-                        <Typography
-                        variant="subtitle1"
                         sx={{
-                            paddingTop: '2rem',
-                            marginBottom:'0.5rem'
-                        }}
+                            justifyContent: 'center',
+                            paddingLeft: '1rem',
+                        }}>
+                        <Typography
+                            variant="h4"
+                        >{movie.title}
+                        </Typography>
+                        <Typography
+                            variant="subtitle2"
+                        >
+                            <span
+                                style={{
+                                    borderWidth: '1px',
+                                    borderStyle: 'solid',
+                                    padding: '0.2rem',
+                                    marginRight: '0.5rem',
+                                    marginLeft: '0.2rem',
+                                }}>
+                                {movie.ageRating}
+                            </span>
+                            Aventura, Fantasia, Ação</Typography>
+                        <Typography
+                            variant="subtitle1"
+                            sx={{
+                                paddingTop: '1rem',
+                                marginBottom: '0.5rem',
+                            }}
                         >
                             Sinopse
                         </Typography>
                         <Typography
-                        variant="body2">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet laudantium repudiandae veniam nam eius modi libero nemo consequatur, cum adipisci odit inventore dignissimos molestias eum consequuntur omnis ex voluptatum. Adipisci!
+                            variant="body2"
+                        >
+                            {movie.description}
                         </Typography>
                         <Stack
-                        direction="row"
-                        gap={1}
-                        sx={{
-                            paddingY:'1rem'
-                        }}
+                            direction="row"
+                            gap={1}
+                            sx={{
+                                paddingY: '1rem',
+                            }}
                         >
-                            <Button 
-                            variant="outlined"
-                            >Assistir
+                            <Button
+                                variant='outlined'
+                            >
+                                Assistir
                             </Button>
                             <Button
-                            variant="outlined"
-                            >Detalhes
+                                variant='contained'
+                            >
+                                Detalhes
                             </Button>
                         </Stack>
+
                     </Stack>
+
                 </Stack>
             </Container>
         </Box>
     )
 }
 
-export default HighlightSection;
+export default HighLightSection;
