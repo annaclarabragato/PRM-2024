@@ -12,18 +12,17 @@ function HighLightSection() {
 
     useEffect(() => {
 
-         const movieId = (params.id) ? params.id: "00602133-a84f-49cc-8750-a150c18cdeba"
+        const movieId = (params.id) ? params.id : "2cf76a7f-6f5b-4750-a97c-067c0beced8d"
 
-         
-        if (params.id) {
-            MoviesService.getMoviesById(movieId)
-                .then(result => {
-                    if (result) setMovie(result);
-                })
-                .catch(error => {
-                    console.log('PAU:', error)
-                })
-        }
+
+        MoviesService.getMoviesById(movieId)
+            .then(result => {
+                console.log('AQUI: ', result)
+                if (result) setMovie(result);
+            })
+            .catch(error => {
+                console.log('PAU:', error)
+            })
     }, [params]);
 
     return (
