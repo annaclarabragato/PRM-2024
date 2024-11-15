@@ -1,5 +1,6 @@
 import { Body, Controller, Delete, Get, HttpCode, HttpException, HttpStatus, Param, ParseUUIDPipe, Post, Put, Query } from "@nestjs/common";
 import { Category } from "src/categories/category-entity";
+import { Genre } from "src/genres/genre-entity";
 import { Movie } from "src/movies/movie-entity";
 import { MovieService } from "src/movies/movie-service";
 

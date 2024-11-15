@@ -1,5 +1,6 @@
 import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { Category } from "src/categories/category-entity";
+import { Genre } from 'src/genres/genre-entity';
 
 @Entity('movie')
 export class Movie {
@@ -23,4 +24,10 @@ export class Movie {
     name: 'movie_category'
   })
   categories: Category[];
+
+  @ManyToMany(() => Genre, {eager: true})
+  @JoinTable({
+    name: 'movie_genres'
+  })
+  genres: Genre[];
 }
